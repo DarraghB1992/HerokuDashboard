@@ -1,14 +1,16 @@
 from flask import Flask, render_template
 from pymongo import MongoClient
 import json
-from bson import json_util
+
 
 app = Flask(__name__)
 
 MONGOD_HOST = 'localhost'
 MONGOD_PORT = 27017
 
-DBS_NAME = 'donorsUSA'
+MONGODB_URI = 'mongodb://darragh:5nXloxwh@ds049104.mlab.com:49104/heroku_x1p2b3j6'
+
+DBS_NAME = 'heroku_x1p2b3j6'
 COLLECTION_NAME = 'projects'
 FIELDS = {'funding_status': True, 'school_state': True, 'resource_type': True, 'poverty_level': True,
           'date_posted': True, 'total_donations': True, '_id': False
@@ -21,7 +23,7 @@ def index():
 
 @app.route('/donorsUS/projects')
 def donor_projects():
-    connection = MongoClient(MONGOD_HOST, MONGOD_PORT)
+    connection = MongoClient(MONGODB_URI)
     collection = connection[DBS_NAME][COLLECTION_NAME]
     projects = collection.find(projection=FIELDS, limit=87000)
 
