@@ -1,156 +1,130 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>School Donations Dashboard</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../static/lib/css/keen-dashboards.css">
-    <link rel="stylesheet" href="../static/lib/css/dc.css">
-    <link rel="stylesheet" href="../static/css/custom.css">
-    <script src="../static/lib/js/jquery.min.js"></script>
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="./static/lib/css//bootstrap.min.css">
+  <link rel="stylesheet" href="./static/lib/css/keen-dashboards.css">
+  <link rel="stylesheet" href="./static/lib/css/dc.css">
+  <link rel="stylesheet" href="./static/css/custom.css">
+
 
 </head>
-<script>
-    jQuery(window).load(function () {
-        jQuery('#overlay').fadeOut(25000);
-    })
-</script>
-
 <body class="application">
 
-<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container-fluid">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="./">School Donations Dashboard</a>
-        </div>
+      <div class="navbar-header">
+        <a class="navbar-brand" href="./">Donorschoose Dashboard</a>
+      </div>
     </div>
-</div>
+  </div>
 
-<div id="outer" class="container-fluid">
-
-    <div id="overlay"><br>
-        <h1>Loading...</h1></div>
+  <div class="container-fluid">
 
     <div class="row">
-        <div class="col-sm-8">
-            <div class="row">
 
-                <!-- Time Chart -->
-                <div class="col-sm-12">
-                    <div class="chart-wrapper">
-                        <div class="chart-title">
-                            Number of Donations
-                        </div>
-                        <div class="chart-stage">
-                            <div id="time-chart"></div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Time Chart -->
+      <div class="col-sm-6">
+        <div class="row">
 
-                <!-- Resources -->
-                <div class="col-sm-6">
-                    <div class="chart-wrapper">
-                        <div class="chart-title">
-                            Resources Type
-                        </div>
-                        <div class="chart-stage">
-                            <div id="resource-type-row-chart"></div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Resources -->
-
-                <!-- funding Pie -->
-                <div class="col-sm-6">
-                    <div class="chart-wrapper">
-                        <div class="chart-title">
-                            Funding Status
-                        </div>
-                        <div class="chart-stage">
-                            <div id="funding-chart"></div>
-                        </div>
-                    </div>
-                </div>
-                <!-- funding Pie -->
-
-            </div>
-        </div>
-
-        <!-- Poverty -->
-        <div class="col-sm-3">
+          <!-- Time Chart -->
+          <div class="col-sm-12">
             <div class="chart-wrapper">
-                <div class="chart-title">
-                    Poverty Level
-                </div>
-                <div class="chart-stage">
-                    <div id="poverty-level-row-chart"></div>
-                </div>
+              <div class="chart-title">
+                Number of Donations
+              </div>
+              <div class="chart-stage">
+                <div id="time-chart"></div>
+              </div>
             </div>
-        </div>
-        <!-- Poverty -->
+          </div>
+          <!-- Time Chart -->
 
-        <!-- menu Select -->
-        <div class="col-sm-6">
+          <!-- Resources Pie -->
+          <div class="col-sm-6">
             <div class="chart-wrapper">
-                <div class="chart-title">
-                    Donation State
-                </div>
-                <div class="chart-stage">
-                    <div id="menu-select"></div>
-                </div>
+              <div class="chart-title">
+                Resources Type
+              </div>
+              <div class="chart-stage">
+                <div id="resource-type-row-chart"></div>
+              </div>
             </div>
-        </div>
-        <!-- menu Select -->
+          </div>
+          <!-- Resources Pie -->
 
-        <!-- Metric 1 -->
-        <div class="col-sm-2">
+          <!-- Poverty Pie -->
+          <div class="col-sm-6">
             <div class="chart-wrapper">
-                <div class="chart-title">
-                    Total Number of Donations
-                </div>
-                <div class="chart-stage" style=" background: #33CC99;
-                    position: relative;
-                    font-size: 29px;
-                    color: white;
-                    vertical-align: middle;
-                    text-align: center;
-                    padding-top: 12px;
-                    padding-bottom: 0px;">
-                    <div id="number-projects-nd"></div>
-                </div>
+              <div class="chart-title">
+                Poverty Level
+              </div>
+              <div class="chart-stage">
+                <div id="poverty-level-row-chart"></div>
+              </div>
             </div>
-        </div>
-        <!-- Metric 1 -->
+          </div>
+          <!-- Poverty Pie -->
 
-        <!-- Metric 2 -->
-        <div class="col-sm-2"
-             <div class="chart-wrapper">
-                 <div class="chart-title">
-                     Total Donations in USD
-                 </div>
-                 <div class="chart-stage">
-                     <div id="total-donations-nd"></div>
-                 </div>
-             </div>
-        <!-- Metric 2 -->
+        </div>
+      </div>
+
+      <!-- Map -->
+      <div class="col-sm-6">
+        <div class="chart-wrapper">
+          <div class="chart-title">
+            Distribution of Donations
+          </div>
+          <div class="chart-stage">
+            <div id="us-chart"></div>
+          </div>
+        </div>
+      </div>
+      <!-- Map -->
+
+      <!-- Metric 1 -->
+      <div class="col-sm-3">
+        <div class="chart-wrapper">
+          <div class="chart-title">
+            Total Number of Donations
+          </div>
+          <div class="chart-stage">
+            <div id="number-projects-nd"></div>
+          </div>
+        </div>
+      </div>
+      <!-- Metric 1 -->
+
+      <!-- Metric 2 -->
+      <div class="col-sm-3">
+        <div class="chart-wrapper">
+          <div class="chart-title">
+            Total Donations in USD
+          </div>
+          <div class="chart-stage">
+            <div id="total-donations-nd"></div>
+          </div>
+        </div>
+      </div>
+      <!-- Metric 2 -->
 
     </div>
 
-<hr>
-<p class="small text-muted">Data viz &#9829; from Darragh Browne</p>
+  </div>
 
-</div>
+    <hr>
+    <p class="small text-muted">Built with &#9829; </p>
+
+  </div>
+
+  <script src="./static/lib/js/jquery.min.js"></script>
+  <script src="./static/lib/js/bootstrap.min.js"></script>
+  <script src="./static/lib/js/crossfilter.js"></script>
+  <script src="./static/lib/js/d3.js"></script>
+  <script src="./static/lib/js/dc.js"></script>
+  <script src="./static/lib/js/queue.js"></script>
 
 
-<script src="../static/lib/js/bootstrap.min.js"></script>
-<script src="../static/lib/js/crossfilter.js"></script>
-<script src="../static/lib/js/d3.js"></script>
-<script src="../static/lib/js/dc.js"></script>
-<script src="../static/lib/js/queue.js"></script>
-
-<script src="../static/lib/js/keen.min.js"></script>
-<script src='../static/js/graph.js' type='text/javascript'></script>
-
+  <script src="./static/lib/js/keen.min.js"></script>
+  <script src='./static/js/graph.js' type='text/javascript'></script>
 </body>
 </html>
